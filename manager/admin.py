@@ -9,6 +9,7 @@ class BookResource(resources.ModelResource):
         model = Book
         skip_unchanged = True
         report_skipped = True
+        exclude = ('id',)
         import_id_fields= ('book_isbn',)
         fields = ('book_isbn', 'book_title', 'book_author', 'book_image', 'book_desc', 'book_genre_id') 
 
