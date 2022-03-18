@@ -7,7 +7,7 @@ from .models import Book,Genre,Reviews
 @admin.register(Book)
 class BookAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ('book_title','book_author')
-class BookResources(resources.ModelResources):
+class BookResources(resources.ModelResource):
     class Meta:
         model = Book
         skip_unchanged = True
