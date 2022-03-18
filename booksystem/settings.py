@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import environ 
 from pathlib import Path
+import os
+import psycopg2
 
 env = environ.Env()
 environ.Env.read_env()
@@ -47,6 +49,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'widget_tweaks',
     'django_filters',
+    'import_export',
 
 
 ]
@@ -148,6 +151,9 @@ EMAIL_USE_TLS = True
 
 import django_on_heroku
 django_on_heroku.settings(locals())
+
+DATABASE_URL = os.environ['DATABASE_URL']
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 import dj_database_url
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
