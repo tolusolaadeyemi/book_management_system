@@ -20,6 +20,6 @@ class BookAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 class GenreAdmin(admin.ModelAdmin):
     list_display = ("genre_id","genre_name")
 admin.site.register(Reviews)
-admin.site.register(BookAdmin)
+
 
  
