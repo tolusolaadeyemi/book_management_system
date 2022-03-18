@@ -15,9 +15,11 @@ class BookResource(resources.ModelResource):
 @admin.register(Book)
 class BookAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ('book_title','book_author')
+    resource_class = BookResource
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
     list_display = ("genre_id","genre_name")
 admin.site.register(Reviews)
+admin.site.register(Book,BookAdmin)
 
  
