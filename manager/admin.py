@@ -6,6 +6,7 @@ from .models import Book,Genre,Reviews
 @admin.register(Book)
 class BookAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     list_display = ('book_title','book_author')
+    exclude = ('id',)
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
     list_display = ("genre_id","genre_name")
