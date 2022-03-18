@@ -1,13 +1,11 @@
 from import_export.admin import ImportExportModelAdmin
-from import_export import resources
 from django.contrib import admin
 from .models import Book,Genre,Reviews
 
 
 @admin.register(Book)
-class BookAdmin(ImportExportModelAdmin,admin.ModelAdmin):
+class BookAdmin(ImportExportModelAdmin,admin.ModelAdmin,resources.ModelResource):
     list_display = ('book_title','book_author')
-class BookResources(resources.ModelResource):
     class Meta:
         model = Book
         skip_unchanged = True
